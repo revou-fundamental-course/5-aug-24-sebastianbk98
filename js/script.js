@@ -1,9 +1,14 @@
 const form = document.getElementById("form");
 const statusBMI = document.getElementById("status-bmi");
+const info = document.getElementById("info");
 const scoreBMI = document.getElementById("nilai-bmi");
 const detailsBMI = document.getElementById("keterangan-bmi");
 const result = document.getElementById("result");
 const details = document.getElementById("details");
+const learnBtn = document.getElementById("learn");
+const modal = document.getElementById("learn-modal");
+const closeModalBtn = document.getElementById("close-modal");
+const closeBtn = document.getElementById("close");
 
 const calculateBMI = (weight, height) => {
   bmi = (weight / height ** 2).toFixed(1);
@@ -12,7 +17,7 @@ const calculateBMI = (weight, height) => {
   return { bmi, idealMin, idealMax };
 };
 
-const updateResult = (bmi, idealMin, idealMax, height) => {
+const updateResult = (sex, age, bmi, idealMin, idealMax, height) => {
   if (bmi < 18.5) {
     statusBMI.textContent = "Berat Badan Kurang";
     detailsBMI.textContent = "Berat badan anda kurang dari ideal";
@@ -35,11 +40,12 @@ const updateResult = (bmi, idealMin, idealMax, height) => {
     details.innerHTML = `Berat badan Anda lebih dari ideal dan termasuk ke kategori obesitas. Berdasarkan tinggi badan Anda (${height}m), berat badan ideal Anda ada di antara ${idealMin}kg dan ${idealMax}kg. Periksakan diri Anda ke dokter untuk mencegah penyakit-penyakit yang berhubungan dengan obesitas. <a href="https://www.alodokter.com/obesitas" target="_blank">Pelajari lebih lanjut</a>`;
   }
   scoreBMI.textContent = bmi;
+  info.textContent = `( ${sex} / ${age} tahun )`;
   result.classList.add("done", "animated-rotate");
-  details.classList.add("done", "animated-fade-in");
+  details.classList.add("done", "animated-scale");
   setTimeout(() => {
     result.classList.remove("animated-rotate");
-    details.classList.remove("animated-fade-in");
+    details.classList.remove("animated-scale");
   }, 1000);
 };
 
@@ -48,11 +54,35 @@ const onSubmitHandler = (event) => {
   result.classList.remove("animated");
   const formData = new FormData(form);
   const sex = formData.get("jenis-kelamin");
+  const age = Number(formData.get("umur"));
   const weight = Number(formData.get("berat-badan"));
   const height = Number(formData.get("tinggi-badan")) / 100;
   const { bmi, idealMin, idealMax } = calculateBMI(weight, height);
-  updateResult(bmi, idealMin, idealMax, height);
+  updateResult(sex, age, bmi, idealMin, idealMax, height);
   form.reset();
 };
 
+const mouseOverHandler = () => {
+  learnBtn.textContent = "Pelajari BMI lebih lanjut";
+};
+
+const mouseOutHandler = () => {
+  learnBtn.textContent = "?";
+};
+
+const learnOnClickHandler = () => {
+  document.querySelector("body").style.overflow = "hidden";
+  modal.style.display = "block";
+};
+
+const closeModalHandler = () => {
+  modal.style.display = "none";
+  document.querySelector("body").style.overflow = "auto";
+};
+
 form.addEventListener("submit", onSubmitHandler);
+learnBtn.addEventListener("mouseover", mouseOverHandler);
+learnBtn.addEventListener("mouseout", mouseOutHandler);
+learnBtn.addEventListener("click", learnOnClickHandler);
+closeModalBtn.addEventListener("click", closeModalHandler);
+closeBtn.addEventListener("click", closeModalHandler);
