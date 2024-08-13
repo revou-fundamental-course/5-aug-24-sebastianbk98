@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator BMI</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1 class="text-center">Kalkulator BMI</h1>
+    </header>
+    <main class="d-flex">
+      <section id="form-section" class="section">
+        <h2 class="text-center">Form</h2>
+        <div>
+          <form class="d-flex flex-column card" id="form">
+            <label>Jenis Kelamin</label>
+            <div>
+              <span>
+                <input type="radio" value="pria" name="jenis-kelamin" checked />
+                Pria
+              </span>
+              <span>
+                <input type="radio" value="wanita" name="jenis-kelamin" />
+                Wanita
+              </span>
+            </div>
+            <label for="berat-badan">Berat Badan (kg)</label>
+            <input
+              id="berat-badan"
+              type="number"
+              name="berat-badan"
+              min="0"
+              step="0.1"
+            />
+            <label for="tinggi-badan">Tinggi Badan (cm)</label>
+            <input
+              type="number"
+              name="tinggi-badan"
+              id="tinggi-badan"
+              min="0"
+              step="0.1"
+            />
+            <div class="d-flex justify-content-end gap">
+              <button type="reset" class="btn btn-reset">Reset</button>
+              <button type="submit" class="btn btn-submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section id="result-section" class="section">
+        <h2 class="text-center">Hasil</h2>
+        <div class="d-flex flex-column text-center card" id="result">
+          <span id="status-bmi"></span>
+          <h3 id="nilai-bmi"></h3>
+          <span id="keterangan-bmi"></span>
+        </div>
+        <p id="details"></p>
+      </section>
+    </main>
+    <footer class="text-center"><p>All right reserved</p></footer>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

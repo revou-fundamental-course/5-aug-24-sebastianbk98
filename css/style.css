@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  background-color: lightcyan;
+}
+h1 {
+  font-weight: 900;
+}
+main {
+  height: auto;
+}
+footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+.section {
+  width: 500px;
+  /* width: 100%; */
+  padding: 16px;
+  margin: 16px;
+  border-radius: 32px;
+  background-color: white;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+.gap {
+  gap: 10px;
+}
+
+.justify-content-end {
+  justify-content: end;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+label {
+  padding: 4px 0;
+}
+
+input {
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.btn {
+  margin: 4px 0;
+  padding: 8px 32px;
+  border-radius: 8px;
+}
+
+.btn-submit {
+  background-color: lightblue;
+}
+
+.btn-submit:hover {
+  background-color: blue;
+  color: white;
+}
+
+.btn-submit:active {
+  background-color: darkblue;
+  color: white;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+#result {
+  opacity: 0;
+  transition: opacity 1s;
+  border-width: 5px;
+}
+#result.done {
+  opacity: 1;
+}
+
+.animated-rotate {
+  animation-name: rotate;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes rotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  40%,
+  80% {
+    transform: rotate(2deg);
+  }
+  20%,
+  60% {
+    transform: rotate(-2deg);
+  }
+}
+
+#details {
+  opacity: 0;
+  text-align: justify;
+  margin: 8px;
+}
+#details.done {
+  opacity: 1;
+}
+
+.animated-fade-in {
+  animation-name: fadein;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes fadein {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
