@@ -6,3 +6,5 @@ Aplikasi untuk menghitung Body Mass Index.
 
 - Icon dibuat dengan [Icon Generate](https://www.icongenerate.com/icon-maker) dan dikonversi ke favicon dengan [Favicon.io](https://favicon.io/favicon-converter/).
 - Font dari Google Fonts, [Poppins](https://fonts.google.com/specimen/Poppins).
+
+[@sebastianbk98](https://sebastianbk98.github.io)

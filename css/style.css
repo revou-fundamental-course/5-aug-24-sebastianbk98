@@ -1,11 +1,16 @@
+/* Styling for global */
+
+/* import google fonts Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/* reset default padding and margin and set box-sizing to border box */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+/* set font family, size, background color and position for the whole html */
 html,
 body {
   font-family: "Poppins", sans-serif;
@@ -13,19 +18,23 @@ body {
   background-color: lightcyan;
   position: relative;
 }
-h1 {
+
+/* ========================================================== */
+/* Styling for Header */
+
+/* Give more weight to h1 */
+header > h1 {
   font-weight: 900;
 }
+
+/* ========================================================== */
+/* Styling for Main */
+
+/* set main height to auto */
 main {
   height: auto;
 }
-footer {
-  /* position: relative; */
-  min-height: 50px;
-  /* bottom: 0; */
-  width: 100%;
-  bottom: 0;
-}
+/* set style to section class */
 .section {
   width: 500px;
   /* width: 100%; */
@@ -35,108 +44,124 @@ footer {
   background-color: white;
 }
 
-.d-flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* ========================================================== */
+/* Styling for footer */
+footer {
+  min-height: 50px;
+  width: 100%;
+  bottom: 0;
 }
 
-.flex-column {
-  flex-direction: column;
+footer a {
+  color: black;
+  /* text-decoration: none; */
 }
 
-.text-center {
-  text-align: center;
-}
-.gap {
-  gap: 10px;
-}
+/* ========================================================== */
+/* Styling for form */
 
-.justify-content-end {
-  justify-content: end;
-}
-
-.card {
-  border: 1px solid black;
-  padding: 16px;
-  border-radius: 16px;
-}
-
+/* set styling to form label */
 label {
   padding: 4px 0;
+  margin-top: 16px;
 }
 
+/* set styling to form input */
 input {
   padding: 8px;
   border-radius: 8px;
-  margin-bottom: 16px;
 }
 
-.btn {
-  margin: 4px 0;
-  padding: 8px 32px;
+/* set styling for custom-select */
+.custom-select {
+  padding: 8px;
   border-radius: 8px;
+  background-color: white;
+}
+.custom-select:hover {
+  background-color: lightgray;
 }
 
-.btn-submit {
-  background-color: lightblue;
-}
-
-.btn-submit:hover {
-  background-color: blue;
-  color: white;
-}
-
-.btn-submit:active {
-  background-color: darkblue;
-  color: white;
-}
-
+/* remove arrow on form input */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
+/* Styling for showing form validation error */
+.error {
+  color: red;
+}
+.input-error {
+  border-color: red;
+  animation: input-error 0.5s;
+}
+@keyframes input-error {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  20% {
+    transform: scale(1.001) rotate(1deg);
+  }
+  40% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+  60% {
+    transform: scale(1.01) rotate(1deg);
+  }
+  80% {
+    transform: scale(1.02) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* ========================================================== */
+/* Styling for Result section */
+
+/* set result styling */
 #result {
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   border-width: 5px;
 }
 #result.done {
   opacity: 1;
 }
 
-.animated-rotate {
-  animation-name: rotate;
+/* CSS class for add result animation */
+.animated-result {
+  animation-name: result-animation;
   animation-duration: 0.5s;
   animation-iteration-count: 1;
 }
-
-@keyframes rotate {
+@keyframes result-animation {
   0%,
   100% {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
   40%,
   80% {
-    transform: rotate(2deg);
+    transform: scale(1.1);
   }
   20%,
   60% {
-    transform: rotate(-2deg);
+    transform: scale(1);
   }
 }
 
+/* add details styling */
 #details {
   opacity: 0;
+  transition: opacity 0.5s;
   text-align: justify;
   margin: 8px;
 }
@@ -144,13 +169,13 @@ input[type="number"] {
   opacity: 1;
 }
 
-.animated-scale {
-  animation-name: scale;
+/* CSS class for add details animation */
+.animated-details {
+  animation-name: details-animation;
   animation-duration: 1s;
   animation-iteration-count: 1;
 }
-
-@keyframes scale {
+@keyframes details-animation {
   0% {
     transform: scale(0.5);
   }
@@ -159,6 +184,10 @@ input[type="number"] {
   }
 }
 
+/* ========================================================== */
+/* Styling for modal */
+
+/* Styling for "learn more" button */
 #learn {
   position: fixed;
   z-index: 10;
@@ -174,7 +203,6 @@ input[type="number"] {
 #learn:hover {
   animation: none;
 }
-
 @keyframes btnAnimation {
   0% {
     border: 2px solid lightcyan;
@@ -188,6 +216,7 @@ input[type="number"] {
   }
 }
 
+/* styling for the modal itself */
 .modal {
   display: none;
   position: fixed;
@@ -199,9 +228,7 @@ input[type="number"] {
   height: 100vh;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-  /* overflow: auto; */
 }
-
 .modal-content {
   position: relative;
   background-color: #fefefe;
@@ -217,7 +244,6 @@ input[type="number"] {
   border-radius: 32px;
   text-align: justify;
 }
-
 @-webkit-keyframes animatetop {
   from {
     top: -300px;
@@ -228,7 +254,6 @@ input[type="number"] {
     opacity: 1;
   }
 }
-
 @keyframes animatetop {
   from {
     top: -300px;
@@ -239,14 +264,13 @@ input[type="number"] {
     opacity: 1;
   }
 }
-
+/* Styling for close button on modal */
 .close {
   color: black;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
   color: gray;
@@ -254,6 +278,7 @@ input[type="number"] {
   cursor: pointer;
 }
 
+/* styling for header on modal */
 .modal-header {
   padding: 8px 16px;
   background-color: lightcyan;
@@ -262,6 +287,7 @@ input[type="number"] {
   max-height: 15vh;
 }
 
+/* styling for body on modal */
 .modal-body {
   padding: 8px 16px;
   height: 55vh;
@@ -273,6 +299,11 @@ input[type="number"] {
 .modal-body > p {
   margin-bottom: 16px;
 }
+#bmi-img {
+  max-width: 80%;
+}
+
+/* styling for footer on modal */
 .modal-footer {
   padding: 8px 32px;
   background-color: lightcyan;
@@ -284,10 +315,73 @@ input[type="number"] {
   border-radius: 0 0 32px 32px;
 }
 
-#bmi-img {
-  max-width: 80%;
-}
+/* ========================================================== */
+/* CSS Class like bootstrap */
 
+/* CSS class for add weight (bold) to text */
 .fw-bold {
   font-weight: bold;
 }
+
+/* CSS class for flex display */
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CSS class for change flex-direction to column */
+.flex-column {
+  flex-direction: column;
+}
+
+/* CSS class for set text align to center */
+.text-center {
+  text-align: center;
+}
+
+/* CSS class for set justify-content to end */
+.justify-content-end {
+  justify-content: end;
+}
+
+/* CSS class for set gap to 10px */
+.gap {
+  gap: 10px;
+}
+
+/* CSS class for styling group */
+.card {
+  border: 1px solid black;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+/* CSS class for button */
+.btn {
+  margin: 4px 0;
+  padding: 8px 32px;
+  border-radius: 8px;
+}
+
+/* CSS class for button submit */
+.btn-submit {
+  background-color: lightblue;
+}
+
+/* CSS class for button submit when hover*/
+.btn-submit:hover {
+  background-color: blue;
+  color: white;
+}
+
+/* CSS class for button when active */
+.btn-submit:active {
+  background-color: darkblue;
+  color: white;
+}
+
+.d-none {
+  display: none;
+}
+/* ========================================================== */

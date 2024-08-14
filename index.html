@@ -37,20 +37,17 @@
       <!-- Form Section -->
       <section id="form-section" class="section">
         <h2 class="text-center">Form</h2>
-        <form class="d-flex flex-column card" id="form">
+        <form class="d-flex flex-column card" id="form" novalidate>
           <label>Jenis Kelamin</label>
-          <div>
-            <span>
-              <input type="radio" value="Pria" name="jenis-kelamin" checked />
-              Pria
-            </span>
-            <span>
-              <input type="radio" value="Wanita" name="jenis-kelamin" />
-              Wanita
-            </span>
-          </div>
+          <select name="jenis-kelamin" id="jenis-kelamin" class="custom-select">
+            <option value="Pria" selected>Pria</option>
+            <option value="Wanita">Wanita</option>
+          </select>
           <label for="umur">Umur (Tahun)</label>
           <input type="number" name="umur" id="umur" min="0" required />
+          <p id="umur-error" class="error d-none">
+            Umur harus diisi angka diatas 1.
+          </p>
           <label for="berat-badan">Berat Badan (kg)</label>
           <input
             id="berat-badan"
@@ -60,6 +57,9 @@
             step="0.1"
             required
           />
+          <p id="berat-error" class="error d-none">
+            Berat badan harus diisi angka diatas 1.
+          </p>
           <label for="tinggi-badan">Tinggi Badan (cm)</label>
           <input
             type="number"
@@ -69,6 +69,9 @@
             step="0.1"
             required
           />
+          <p id="tinggi-error" class="error d-none">
+            Tinggi badan harus diisi angka diatas 1.
+          </p>
           <div class="d-flex justify-content-end gap">
             <button type="reset" class="btn btn-reset">Reset</button>
             <button type="submit" class="btn btn-submit">Submit</button>
@@ -89,7 +92,14 @@
       </section>
     </main>
 
-    <footer class="text-center"><p>All right reserved</p></footer>
+    <footer class="text-center">
+      <p>
+        Created by
+        <a href="https://sebastianbk98.github.io" target="_blank">
+          @sebastianbk98
+        </a>
+      </p>
+    </footer>
 
     <!-- Learn More Button -->
     <button id="learn" class="btn btn-submit">?</button>
